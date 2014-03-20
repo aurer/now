@@ -1,13 +1,20 @@
 var Now = {
 	
 	init: function(){
+		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
+		
+		var canvasContainer = document.getElementById('canvasContainer');
 		window.canvas = document.getElementById('c');
 		window.ctx = canvas.getContext('2d');
-		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
 		canvas.width = this.canvasSize;
 		canvas.height = this.canvasSize;
+		
+		canvasContainer.style.width = this.canvasSize + 'px';
+		canvasContainer.style.height = this.canvasSize + 'px';
+		
 		ctx.translate(0, canvas.height);
 		ctx.rotate(this.radian(-90) );
+
 		return this;
 	},
 
