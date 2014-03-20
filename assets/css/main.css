@@ -1,0 +1,43 @@
+html, body{
+	padding:0;
+	margin:0;
+	height: 100%;
+	font-family: Helvetica, sans-serif;
+	color: #ccc;
+	background: #151C21;
+}
+.page{
+	display: flex;
+	height: 100%;
+}
+.canvases{
+	flex: none;
+	text-align: center;
+}
+canvas{	
+	position: absolute;
+	text-align: center;
+	height: 100%;
+	font-size: 2em;
+	color: #F08C1A;
+}
+#labels{
+	outline: 1px solid rgba(255, 255, 255, 0.2);
+	opacity: 0;
+	transition: opacity 1s;
+}
+#labels:hover,
+#labels:active{
+	opacity: .8;
+}
+h1{
+	font-family: 'Oxygen', Helvetica, sans-serif;
+	top: 50%;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	color: #444;
+	font-size: 2em;
+	margin-top: -1em;
+	visibility: hidden;
+}
