@@ -21,14 +21,14 @@ navigator.geolocation.getCurrentPosition(function(a){
 	
 	var request = new XMLHttpRequest();
 	request.onload = reqListener;
-	request.responseType = 'json';
 	request.open('get', '/sun.php?lat=' + lat + '&lng=' + lng, true);
 	request.send();
 });
 
 
 function reqListener () {
-  var sunrise = this.response.sunrise;
-  var sunset = this.response.sunset;
-  Now.drawSegments(Now.skySegments(sunrise, sunset), 26.5, .5);
+	var times = JSON.parse(this.response);
+	var sunrise = times.sunrise;
+	var sunset = times.sunset;
+	Now.drawSegments(Now.skySegments(sunrise, sunset), 26.5, .5);
 }
