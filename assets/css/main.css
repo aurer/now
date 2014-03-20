@@ -13,6 +13,7 @@ html, body{
 	height: 100%;
 	width: 400px;
 	margin: 0 auto;
+	position: relative;
 }
 canvas{	
 	position: absolute;
@@ -21,14 +22,18 @@ canvas{
 	font-size: 2em;
 	color: #F08C1A;
 }
-#labels{
+#labels,
+h1{
 	opacity: 0;
 	-webkit-transition: opacity 1s;
 	-moz-transition: opacity 1s;
 	transition: opacity 1s;
 }
 #labels:hover,
-#labels:active{
+#labels:active,
+body.touched #labels,
+#canvasContainer:hover h1,
+body.touched h1{
 	opacity: .8;
 }
 h1{
@@ -40,5 +45,4 @@ h1{
 	color: #444;
 	font-size: 2em;
 	margin-top: -1em;
-	//visibility: hidden;
 }
