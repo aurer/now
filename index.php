@@ -40,7 +40,7 @@
 		</div>
 	</div>
 	<script src="assets/js/jsGradient.js"></script>
-	<script src="assets/js/now.js"></script>
+	<script src="assets/js/segments.js"></script>
 	<script src="assets/js/markers.js"></script>
 	<script src="assets/js/labels.js"></script>
 	<script src="assets/js/main.js"></script>
