@@ -34,8 +34,8 @@ var Labels = {
 
 	showDaysOfMonth: function(){
 		var days_in_month = Now.daysInMonth( new Date().getMonth());
-		for(var i =0; i<days_in_month; i++){
-			this.writeText(i.toString(), Now.fractionToDegree(i, days_in_month) + 6, 66);
+		for(var i = 0; i<days_in_month; i++){
+			this.writeText((i + 1).toString(), Now.fractionToDegree(i, days_in_month) + 6, 66);
 		}
 	},
 
