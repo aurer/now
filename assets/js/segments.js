@@ -62,56 +62,34 @@ var Now = {
 	},
 
 	workSegments: function(){
-		var segments = [
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#132A4F',
-			'#17C9FF',
-			'#17C9FF',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#FF9124',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#17C9FF',
-			'#132A4F',
-			'#132A4F'
-		];
+		var times = {
+			wake: 16,
+			workStart: 18,
+			workEnd: 35,
+			sleep: 46
+		}
+
+		var colors = {
+			sleep: '#132A4F',
+			free: '#17C9FF',
+			work: '#FF9124',
+		}
+
+		var segments = new Array(48);
+		for(var i = 0; i < 48; i++){
+			if(i >= times.wake && i < times.workStart){
+				segments[i] = colors.free;
+			}
+			else if(i >= times.workStart && i < times.workEnd){
+				segments[i] = colors.work;
+			}
+			else if(i >= times.workEnd && i < times.sleep){
+				segments[i] = colors.free;
+			}
+			else{
+				segments[i] = colors.sleep;
+			}
+		}
 		return segments;
 	},
 
