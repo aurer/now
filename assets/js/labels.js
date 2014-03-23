@@ -7,7 +7,7 @@ var Labels = {
 		this.canvas.width = this.canvasSize;
 		this.canvas.height = this.canvasSize;
 		this.ctx.translate(0, canvas.height);
-		this.ctx.rotate(Now.radian(-90) );
+		this.ctx.rotate(Segments.radian(-90) );
 		return this;
 	},
 
@@ -21,28 +21,28 @@ var Labels = {
 
 	showHoursOfDay: function(){
 		for(var i =0; i<24; i++){
-			this.writeText(i.toString(), Now.fractionToDegree(i, 24) + 8, 22);
+			this.writeText(i.toString(), Segments.fractionToDegree(i, 24) + 8, 22);
 		}
 	},
 
 	showDaysOfWeek: function(){
 		var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 		for(var i =0; i<7; i++){
-			this.writeText(days[i], Now.fractionToDegree(i, 7) + 27, 46);
+			this.writeText(days[i], Segments.fractionToDegree(i, 7) + 27, 46);
 		}
 	},
 
 	showDaysOfMonth: function(){
-		var days_in_month = Now.daysInMonth( new Date().getMonth());
+		var days_in_month = Segments.daysInMonth( new Date().getMonth());
 		for(var i = 0; i<days_in_month; i++){
-			this.writeText((i + 1).toString(), Now.fractionToDegree(i, days_in_month) + 6, 66);
+			this.writeText((i + 1).toString(), Segments.fractionToDegree(i, days_in_month) + 6, 66);
 		}
 	},
 
 	showMonthsOfYear: function(){
 		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		for(var i =0; i<months.length; i++){
-			this.writeText(months[i], Now.fractionToDegree(i, months.length) + 15, 86);
+			this.writeText(months[i], Segments.fractionToDegree(i, months.length) + 15, 86);
 		}
 	},
 
@@ -65,7 +65,7 @@ var Labels = {
 		ctx.save();
 		
 		ctx.translate(x,y);
-		ctx.rotate( Now.radian(90 + angle) );
+		ctx.rotate( Segments.radian(90 + angle) );
 		ctx.translate(-wordwidth, -size);
 		ctx.font = fontSize+'px sans-serif';
 		ctx.fillStyle = color;

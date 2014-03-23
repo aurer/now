@@ -1,4 +1,4 @@
-var Now = {
+var Segments = {
 	
 	init: function(){
 		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;

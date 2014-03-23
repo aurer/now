@@ -1,7 +1,7 @@
 // Setup the canvas
 
 // Draw the main infogram
-Now.init().draw();
+Segments.init().draw();
 
 // Draw the labels
 Labels.init().draw();
@@ -30,7 +30,7 @@ function reqListener () {
 	var times = JSON.parse(this.response);
 	var sunrise = times.sunrise;
 	var sunset = times.sunset;
-	Now.drawSegments(Now.skySegments(sunrise, sunset), 26.5, .5);
+	Segments.drawSegments(Segments.skySegments(sunrise, sunset), 26.5, .5);
 }
 
 window.addEventListener('load', function(){ // on page load

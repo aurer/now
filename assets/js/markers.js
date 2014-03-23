@@ -8,7 +8,7 @@ var Markers = {
 		this.canvas.width = this.canvasSize;
 		this.canvas.height = this.canvasSize;
 		this.ctx.translate(0, canvas.height);
-		this.ctx.rotate(Now.radian(-90) );
+		this.ctx.rotate(Segments.radian(-90) );
 		return this;
 	},
 	
@@ -35,11 +35,11 @@ var Markers = {
 
 	showMonth: function(){
 		var today = new Date().getDate();
-		var days_in_month = Now.daysInMonth( new Date().getMonth());
+		var days_in_month = Segments.daysInMonth( new Date().getMonth());
 		var hours_in_month = 24 * days_in_month;
 		var hour_of_day = new Date().getHours();
-		var added_hours = Now.fractionToDegree(hour_of_day, hours_in_month);
-		var pos = Now.fractionToDegree(today - 1, days_in_month);
+		var added_hours = Segments.fractionToDegree(hour_of_day, hours_in_month);
+		var pos = Segments.fractionToDegree(today - 1, days_in_month);
 		pos = pos + added_hours;
 		this.drawIndicator(pos, 70);
 	},
@@ -49,8 +49,8 @@ var Markers = {
 		var days_in_week = 7;
 		var hours_in_week = 24 * days_in_week;
 		var hour_of_day = new Date().getHours();
-		var added_hours = Now.fractionToDegree(hour_of_day, hours_in_week);
-		var pos = Now.fractionToDegree(day_of_week - 1, days_in_week);
+		var added_hours = Segments.fractionToDegree(hour_of_day, hours_in_week);
+		var pos = Segments.fractionToDegree(day_of_week - 1, days_in_week);
 		pos = pos + added_hours;
 		this.drawIndicator(pos, 50);
 	},
@@ -59,7 +59,7 @@ var Markers = {
 		var minutes_in_day = 60 * 24;
 		var hour = new Date().getHours();
 		var minute = (60 * hour) + new Date().getMinutes();
-		var pos = Now.fractionToDegree(minute, minutes_in_day);
+		var pos = Segments.fractionToDegree(minute, minutes_in_day);
 		this.drawIndicator(pos, 30);	
 	},
 
@@ -78,7 +78,7 @@ var Markers = {
 		ctx.save();
 		
 		ctx.translate(x,y);
-		ctx.rotate( Now.radian(90 + angle) );
+		ctx.rotate( Segments.radian(90 + angle) );
 	    ctx.translate(0, -(size + 15));
 	    ctx.fillStyle = '#0A84FF';
 	    ctx.beginPath();
@@ -95,7 +95,7 @@ var Markers = {
 			ctx.save();
 
 			ctx.translate(x,y);
-			ctx.rotate( Now.radian(90 + angle) );
+			ctx.rotate( Segments.radian(90 + angle) );
 		    ctx.translate(-2, -size - 10);
 		    ctx.beginPath();
 		    ctx.moveTo(0, 20);
@@ -113,7 +113,7 @@ var Markers = {
 			ctx.moveTo(x,y);
 			ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
 			ctx.beginPath();
-			ctx.arc(x, y, size, 0, Now.radian( angle) );
+			ctx.arc(x, y, size, 0, Segments.radian( angle) );
 			ctx.lineTo(x,y);
 			ctx.fill();
 			
