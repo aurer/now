@@ -41,6 +41,8 @@
 	<script src="assets/js/segments.js"></script>
 	<script src="assets/js/markers.js"></script>
 	<script src="assets/js/labels.js"></script>
+	<script src="assets/js/sun.js"></script>
+	<script src="assets/js/touch.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/analytics.js"></script>
 </body>
