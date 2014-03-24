@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="A simple display to show you at what point you are in the current day, week, month and year." />
 	<title>Now</title>
 	<link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -16,9 +17,7 @@
 			   \ \__\\ \__\ \_______\ \____________\|__|   
 			    \|__| \|__|\|_______|\|____________|   ___ 
 			                                          |\__\
-			                                          \|__|
-	                                        
-	A simple display to show you at what point you are in the current day, week, month and year. 
+			                                          \|__| 
 
 	Inspired by 'now' by the brilliant Randall Munroe -> https://xkcd.com/now/
 	
@@ -26,7 +25,6 @@
 </head>
 <body>
 	<div class="page">
-		
 		<div id="canvasContainer">
 			<h1>Now</h1>
 			<canvas id="markers">
@@ -44,15 +42,6 @@
 	<script src="assets/js/markers.js"></script>
 	<script src="assets/js/labels.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-31871536-1', 'aurer.co.uk');
-	  ga('send', 'pageview');
-
-	</script>
+	<script src="assets/js/analytics.js"></script>
 </body>
 </html>
