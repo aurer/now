@@ -22,6 +22,7 @@
 	Inspired by 'now' by the brilliant Randall Munroe -> https://xkcd.com/now/
 	
 	********************************************************************************************************-->
+	<script src="assets/js/analytics.js"></script>
 </head>
 <body>
 	<div class="page">
@@ -44,6 +45,5 @@
 	<script src="assets/js/sun.js"></script>
 	<script src="assets/js/touch.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/analytics.js"></script>
 </body>
 </html>
