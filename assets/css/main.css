@@ -46,3 +46,7 @@ h1{
 	font-size: 2em;
 	margin-top: -1em;
 }
+#optionsContainer{
+	position: absolute;
+	top: 0;
+}

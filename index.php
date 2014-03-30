@@ -1,3 +1,12 @@
+<?php
+
+function decimal_to_time($decimal) {
+ 	$hours = floor($decimal);
+ 	$minutes = (($decimal * 60) - floor($hours) * 60);
+ 	return str_pad($hours, 2, "0", STR_PAD_LEFT) . ':' . str_pad($minutes, 2, "0", STR_PAD_LEFT);
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,13 +46,62 @@
 			<canvas id="c"></canvas>
 			<canvas id="labels"></canvas>
 		</div>
+		<div id="optionsContainer">
+			<form action="">
+				<fieldset>
+					<div class="field">
+						<label for="in-show-work">Show work</label>
+						<input type="checkbox" name="show-work">
+					</div>
+					<div class="field">
+						<label for="in-show-sky">Show sky</label>
+						<input type="checkbox" name="show-sky">
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="field">
+						<label for="in-wake">Wake</label>
+						<select name="wake" id="in-wake">
+							<?php for($i = 1; $i < 49; $i++): ?>
+								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
+							<?php endfor ?>
+						</select>
+					</div>
+					<div class="field">
+						<label for="in-start-work">Start work</label>
+						<select name="start-work" id="in-start-work">
+							<?php for($i = 1; $i < 49; $i++): ?>
+								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
+							<?php endfor ?>
+						</select>
+					</div>
+					<div class="field">
+						<label for="in-end-work">Finish work</label>
+						<select name="end-work" id="in-end-work">
+							<?php for($i = 1; $i < 49; $i++): ?>
+								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
+							<?php endfor ?>
+						</select>
+					</div>
+					<div class="field">
+						<label for="in-sleep">Sleep</label>
+						<select name="sleep" id="in-sleep">
+							<?php for($i = 1; $i < 49; $i++): ?>
+								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
+							<?php endfor ?>
+						</select>
+					</div>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-	<script src="assets/js/jsGradient.js"></script>
+	<!--<script src="assets/js/jsGradient.js"></script>
 	<script src="assets/js/segments.js"></script>
 	<script src="assets/js/markers.js"></script>
 	<script src="assets/js/labels.js"></script>
 	<script src="assets/js/sun.js"></script>
-	<script src="assets/js/touch.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/touch.js"></script>-->
+	<script src="assets/js/options.js"></script>
+	<!--<script src="assets/js/main.js"></script>-->
 </body>
 </html>
