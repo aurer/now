@@ -1,13 +1,12 @@
-// Show a marker for each time period
 var Markers = {
 
 	init: function(){
+		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
 		this.canvas = document.getElementById('markers');
 		this.ctx = this.canvas.getContext('2d');
-		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
 		this.canvas.width = this.canvasSize;
 		this.canvas.height = this.canvasSize;
-		this.ctx.translate(0, canvas.height);
+		this.ctx.translate(0, this.canvas.height);
 		this.ctx.rotate(Segments.radian(-90) );
 		return this;
 	},

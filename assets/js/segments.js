@@ -2,26 +2,29 @@ var Segments = {
 	
 	init: function(){
 		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
-		
 		var canvasContainer = document.getElementById('canvasContainer');
-		window.canvas = document.getElementById('c');
-		window.ctx = canvas.getContext('2d');
-		canvas.width = this.canvasSize;
-		canvas.height = this.canvasSize;
+		this.canvas = document.getElementById('segments');
+		this.ctx = this.canvas.getContext('2d');
+		this.canvas.width = this.canvasSize;
+		this.canvas.height = this.canvasSize;
 		
 		canvasContainer.style.width = this.canvasSize + 'px';
 		canvasContainer.style.height = this.canvasSize + 'px';
 		
-		ctx.translate(0, canvas.height);
-		ctx.rotate(this.radian(-90) );
+		this.ctx.translate(0, this.canvas.height);
+		this.ctx.rotate(this.radian(-90) );
 
 		return this;
 	},
 
 	draw: function(){
+		this.ctx.clearRect (0, 0 , this.canvas.width , this.canvas.height);
 		this.drawSegments(this.daySegments(), 29.5, .5);
-		this.drawSegments(this.workSegments(), 28, .5);
 		
+		if( Options.get('show.work') == true ){
+			this.drawSegments(this.workSegments(), 28, .5);
+		}
+
 		this.drawSegments(this.weekSegments(), 49.5, 1.5);
 		this.drawSegments(this.monthSegments(), 69.5, 1.5);
 		this.drawSegments(this.yearSegments(), 89.5, 1.5);
@@ -63,10 +66,10 @@ var Segments = {
 
 	workSegments: function(){
 		var times = {
-			wake: 16,
-			workStart: 18,
-			workEnd: 35,
-			sleep: 46
+			wake: Options.get('workTimes.wake') * 2,
+			workStart: Options.get('workTimes.startWork') * 2,
+			workEnd: Options.get('workTimes.endWork') * 2,
+			sleep: Options.get('workTimes.sleep') * 2
 		}
 
 		var colors = {
@@ -132,11 +135,11 @@ var Segments = {
 		var line = line != undefined ? line : 1;
 		var lineWidth = (this.canvasSize / 100) * line;
 		
-		ctx.beginPath();
-		ctx.arc(x, y, size, this.radian(start), this.radian(end), false);
-		ctx.lineWidth = lineWidth;
-		ctx.strokeStyle = color;
-		ctx.stroke();
+		this.ctx.beginPath();
+		this.ctx.arc(x, y, size, this.radian(start), this.radian(end), false);
+		this.ctx.lineWidth = lineWidth;
+		this.ctx.strokeStyle = color;
+		this.ctx.stroke();
 	},
 
 	// Draw an array of colors as segments of an arc
