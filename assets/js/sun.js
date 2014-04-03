@@ -9,7 +9,9 @@ var Sun = {
 	},
 
 	draw: function(){
-		this.locate();
+		if( Options.get('show.sky') == true ){
+			this.locate();
+		}
 	},
 
 	locate: function(){

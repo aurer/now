@@ -1,7 +1,12 @@
-// Setup the canvas
+
+// Handle options
+Options.init();
+
 
 // Draw the main infogram
-Segments.init().draw();
+Segments.init();
+Segments.draw();
+
 
 // Draw the labels
 Labels.init().draw();

@@ -43,49 +43,49 @@ function decimal_to_time($decimal) {
 				<p>You lose.</p>
 				<p>Good day sir.</p>
 			</canvas>
-			<canvas id="c"></canvas>
+			<canvas id="segments"></canvas>
 			<canvas id="labels"></canvas>
 		</div>
 		<div id="optionsContainer">
 			<form action="">
 				<fieldset>
 					<div class="field">
-						<label for="in-show-work">Show work</label>
-						<input type="checkbox" name="show-work">
+						<label for="in-show-sky">Show sky</label>
+						<input type="checkbox" name="show-sky" id="in-show-sky">
 					</div>
 					<div class="field">
-						<label for="in-show-sky">Show sky</label>
-						<input type="checkbox" name="show-sky">
+						<label for="in-show-work">Show work</label>
+						<input type="checkbox" name="show-work" id="in-show-work">
 					</div>
 				</fieldset>
-				<fieldset>
+				<fieldset id="worktimes">
 					<div class="field">
-						<label for="in-wake">Wake</label>
-						<select name="wake" id="in-wake">
+						<label for="in-workTimes-wake">Wake</label>
+						<select name="workTimes-wake" id="in-workTimes-wake">
 							<?php for($i = 1; $i < 49; $i++): ?>
 								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
 							<?php endfor ?>
 						</select>
 					</div>
 					<div class="field">
-						<label for="in-start-work">Start work</label>
-						<select name="start-work" id="in-start-work">
+						<label for="in-workTimes-startWork">Start work</label>
+						<select name="workTimes-startWork" id="in-workTimes-startWork">
 							<?php for($i = 1; $i < 49; $i++): ?>
 								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
 							<?php endfor ?>
 						</select>
 					</div>
 					<div class="field">
-						<label for="in-end-work">Finish work</label>
-						<select name="end-work" id="in-end-work">
+						<label for="in-workTimes-endWork">Finish work</label>
+						<select name="workTimes-endWork" id="in-workTimes-endWork">
 							<?php for($i = 1; $i < 49; $i++): ?>
 								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
 							<?php endfor ?>
 						</select>
 					</div>
 					<div class="field">
-						<label for="in-sleep">Sleep</label>
-						<select name="sleep" id="in-sleep">
+						<label for="in-workTimes-sleep">Sleep</label>
+						<select name="workTimes-sleep" id="in-workTimes-sleep">
 							<?php for($i = 1; $i < 49; $i++): ?>
 								<option value="<?php echo $i / 2 ?>"><?php echo decimal_to_time($i / 2) ?></option>
 							<?php endfor ?>
@@ -95,13 +95,14 @@ function decimal_to_time($decimal) {
 			</form>
 		</div>
 	</div>
-	<!--<script src="assets/js/jsGradient.js"></script>
+	<script src="assets/js/jsGradient.js"></script>
+	<script src="assets/js/effects.js"></script>
 	<script src="assets/js/segments.js"></script>
 	<script src="assets/js/markers.js"></script>
 	<script src="assets/js/labels.js"></script>
 	<script src="assets/js/sun.js"></script>
-	<script src="assets/js/touch.js"></script>-->
+	<script src="assets/js/touch.js"></script>
 	<script src="assets/js/options.js"></script>
-	<!--<script src="assets/js/main.js"></script>-->
+	<script src="assets/js/main.js"></script>
 </body>
 </html>

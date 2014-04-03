@@ -50,3 +50,23 @@ h1{
 	position: absolute;
 	top: 0;
 }
+form{
+	min-width: 400px;
+	background: rgba(0, 0, 0, 0.8);
+}
+fieldset{
+	border: none;
+}
+.field{
+	margin: .5em 0;
+	clear: both;
+	overflow: hidden;
+}
+.field label{
+	float: left;
+	width: 30%;
+}
+.field input,
+.field select{
+	float: right;
+}
