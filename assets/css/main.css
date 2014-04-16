@@ -4,12 +4,14 @@ html, body{
 	height: 100%;
 	font-family: Helvetica, sans-serif;
 	color: #ccc;
-	background: #151C21;
+	background: #E5EBF1;
 }
 .page{
 	height: 100%;
+	-webkit-transition: -webkit-transform .3s;
+  	transition: -webkit-transform .3s;
 }
-#canvasContainer{
+#canvases{
 	height: 100%;
 	width: 400px;
 	margin: 0 auto;
@@ -31,11 +33,10 @@ h1{
 }
 #labels:hover,
 #labels:active,
-body.touched #labels,
-#canvasContainer:hover h1,
-body.touched h1{
+body.touched #labels{
 	opacity: .8;
 }
+
 h1{
 	font-family: 'Oxygen', Helvetica, sans-serif;
 	top: 50%;
@@ -46,27 +47,57 @@ h1{
 	font-size: 2em;
 	margin-top: -1em;
 }
-#optionsContainer{
+
+#options{
+	padding: 0 20px;
+	width: 240px;
+	background: #222;
+	color: #fff;
 	position: absolute;
+	display: block;
 	top: 0;
+	left: 0;
+	bottom: 0;
+	-webkit-transform: translate(-280px);
+	transform: translate(-280px);
+	-webkit-transition: -webkit-transform .3s;
+	transition: -webkit-transform .3s;
 }
-form{
-	min-width: 400px;
-	background: rgba(0, 0, 0, 0.8);
-}
-fieldset{
+
+#options fieldset{
 	border: none;
+	padding: 0;
+	margin: 0;
 }
-.field{
-	margin: .5em 0;
-	clear: both;
-	overflow: hidden;
+
+#options .field{
+	margin: 1em 0;
 }
-.field label{
+
+#options .field label{
 	float: left;
-	width: 30%;
+	width: 60%;
 }
-.field input,
-.field select{
-	float: right;
+
+.panel-open .page{
+	-webkit-transform: translate(280px);
+	transform: translate(280px);
+}
+.panel-open #options{
+	-webkit-transform: translate(0);
+	transform: translate(0);
+}
+#options-handle{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	cursor: pointer;
+	z-index: 800;
+}
+#options-handle svg{
+	fill: rgba(0,0,0,0.5);
+	-webkit-transition: fill .2s, opacity .2s;
+}
+#options-handle:hover svg{
+	fill: rgba(255, 128, 0, 0.8);
 }

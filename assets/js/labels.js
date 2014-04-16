@@ -47,10 +47,10 @@ var Labels = {
 	},
 
 	showLabels: function(){
-		this.writeText('Day', 0, 35, 'rgba(255, 255, 255, 0.3)', 13);
-		this.writeText('Week', 0, 53, 'rgba(255, 255, 255, 0.3)', 13);
-		this.writeText('Month', 0, 73, 'rgba(255, 255, 255, 0.3)', 13);
-		this.writeText('Year', 0, 93, 'rgba(255, 255, 255, 0.3)', 13);
+		this.writeText('Day', 0, 35, 'rgba(0, 0, 0, 0.3)', 13);
+		this.writeText('Week', 0, 53, 'rgba(0, 0, 0, 0.3)', 13);
+		this.writeText('Month', 0, 73, 'rgba(0, 0, 0, 0.3)', 13);
+		this.writeText('Year', 0, 93, 'rgba(0, 0, 0, 0.3)', 13);
 	},
 
 	writeText: function(text, angle, radius, color, fontSize){
@@ -58,7 +58,7 @@ var Labels = {
 		var x = y = this.canvasSize / 2;
 		var size = ((this.canvasSize / 100) * radius) / 2;
 		var wordwidth = 4 * text.length;
-		var color = color || 'rgba(255, 255, 255, 0.8)';
+		var color = color || 'rgba(0, 0, 0, 0.8)';
 		var fontSize = fontSize || 10;
 		text = text.toString();
 

@@ -1,12 +1,9 @@
-
 // Handle options
 Options.init();
-
 
 // Draw the main infogram
 Segments.init();
 Segments.draw();
-
 
 // Draw the labels
 Labels.init().draw();

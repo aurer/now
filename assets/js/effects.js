@@ -1,4 +1,4 @@
-function fadeOut(element, callback){
+var fadeOut = function(element, callback){
 	var opacity = 1;
 	
 	if( element.style.display === 'none' ){
@@ -16,15 +16,14 @@ function fadeOut(element, callback){
 				callback();
 			}
 		}
-		console.log(opacity);
 	}
 	setTimeout(step, 0);
 }
 
-function fadeIn(element, callback){
+var fadeIn = function(element, callback){
 	var opacity = 0;
 
-	if( element.style.display !== 'none' ){
+	if( element.style.display !== 'none' && window.getComputedStyle(element).getPropertyValue('display') ){
 		return;
 	}
 
@@ -39,7 +38,19 @@ function fadeIn(element, callback){
 				callback();
 			}
 		}
-		console.log(opacity);
 	}
 	setTimeout(step, 0);
+}
+
+var toggleClass = function(element, className){
+	var currentClass = element.className;
+	var classPattern = RegExp('\\s*' + className + '\\s*', 'gi');
+
+	console.log(classPattern);
+	// Element has the class so remove it
+	if( currentClass.indexOf(className) > -1 ){
+		element.className = currentClass.replace(classPattern, '');
+	} else {
+		element.className = currentClass + ' ' + className;
+	}
 }

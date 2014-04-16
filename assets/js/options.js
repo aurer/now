@@ -27,6 +27,12 @@ var Options = {
 				ele.onchange = this.handleElementChange;
 			}
 		}
+		document.querySelector('#options-handle').onclick = this.handleOptionsVisibility;
+	},
+
+	handleOptionsVisibility: function(){
+		var options = document.querySelector('#options');
+		toggleClass(document.body, 'panel-open');
 	},
 
 	handleElementChange: function(){
@@ -89,7 +95,7 @@ var Options = {
 		var optionName = option.replace('.', '-');
 		var ele = document.getElementById('in-' + optionName);
 		if(!ele){
-			console.log('Element with id "in-' + optionName + '" could not be found');
+			//console.log('Element with id "in-' + optionName + '" could not be found');
 		}
 		if(ele.type == 'checkbox'){
 			ele.checked = value

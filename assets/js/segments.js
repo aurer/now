@@ -2,14 +2,14 @@ var Segments = {
 	
 	init: function(){
 		this.canvasSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
-		var canvasContainer = document.getElementById('canvasContainer');
+		var canvases = document.getElementById('canvases');
 		this.canvas = document.getElementById('segments');
 		this.ctx = this.canvas.getContext('2d');
 		this.canvas.width = this.canvasSize;
 		this.canvas.height = this.canvasSize;
 		
-		canvasContainer.style.width = this.canvasSize + 'px';
-		canvasContainer.style.height = this.canvasSize + 'px';
+		canvases.style.width = this.canvasSize + 'px';
+		canvases.style.height = this.canvasSize + 'px';
 		
 		this.ctx.translate(0, this.canvas.height);
 		this.ctx.rotate(this.radian(-90) );
@@ -31,16 +31,16 @@ var Segments = {
 	},
 
 	daySegments: function(){
-		return jsgradient.generateGradient('#17C9FF', '#FF9124', 24);
+		return jsgradient.generateGradient('#17C9FF', '#17C9FF', 24);
 	},
 
 	weekSegments: function(){
-		return jsgradient.generateGradient('#17C9FF', '#FF9124', 7);
+		return jsgradient.generateGradient('#17C9FF', '#17C9FF', 7);
 	},
 
 	monthSegments: function(){
 		var days = this.daysInMonth( new Date().getMonth() );
-		return jsgradient.generateGradient('#17C9FF', '#FF9124', days);
+		return jsgradient.generateGradient('#17C9FF', '#17C9FF', days);
 	},
 
 	yearSegments: function(){
@@ -57,7 +57,8 @@ var Segments = {
 		// Loop over months and set colors and sizes
 		for(var i=0; i<12; i++){
 			months.push([
-				allColors[i],
+				//allColors[i],
+				'#A2E01B',
 				this.fractionToDegree(this.daysInMonth(i+1), 365)
 			]);
 		}
