@@ -95,14 +95,29 @@ function decimal_to_time($decimal) {
 			</form>
 		</div>
 	</div>
-	<script src="assets/js/jsGradient.js"></script>
-	<script src="assets/js/effects.js"></script>
-	<script src="assets/js/segments.js"></script>
-	<script src="assets/js/markers.js"></script>
-	<script src="assets/js/labels.js"></script>
-	<script src="assets/js/sun.js"></script>
-	<script src="assets/js/touch.js"></script>
-	<script src="assets/js/options.js"></script>
-	<script src="assets/js/main.js"></script>
+	<div id="canvases">
+		<h1>Now</h1>
+		<canvas id="markers">
+			<p>This page does not load for you.</p>
+			<p>You get nothing.</p>
+			<p>You lose.</p>
+			<p>Good day sir.</p>
+		</canvas>
+		<canvas id="segments"></canvas>
+		<canvas id="labels"></canvas>
+	</div>
+</div>
+
+<?php echo Asset::script('assets/build/main.js', array(
+	'assets/js/jsGradient.js',
+	'assets/js/effects.js',
+	'assets/js/segments.js',
+	'assets/js/markers.js',
+	'assets/js/labels.js',
+	'assets/js/sun.js',
+	'assets/js/touch.js',
+	'assets/js/options.js',
+	'assets/js/main.js',
+)); ?>
 </body>
 </html>
