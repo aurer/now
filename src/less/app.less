@@ -1,0 +1,73 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: #26292F;
+	padding: 1em;
+	margin: 0;
+}
+
+svg {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+
+	circle {
+		fill: none;
+		stroke: #373b44;
+		stroke-width: 20;
+		transform: rotate(-90deg);
+		transform-origin: center;
+		transition-duration: 1s;
+
+		&.segments {
+			stroke: rgba(0, 0, 0, 0.5);
+		}
+	}
+
+	text {
+		display: none;
+	}
+}
+
+.year {
+	&.progress {
+		stroke: #395E66;
+	}
+}
+
+.month {
+	&.progress {
+		stroke: #387D7A;
+	}
+}
+
+.week {
+	&.progress {
+		stroke: #32936F;
+	}
+}
+
+.day {
+	&.progress {
+		stroke: #26A96C;
+	}
+}
+
+.hour {
+	&.progress {
+		stroke: #12c777;
+	}
+}
+
+.minute {
+	&.progress {
+		stroke: #0be886;
+	}
+}

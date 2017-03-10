@@ -1,0 +1,17 @@
+{
+  "name": "now",
+  "version": "2.0.0",
+  "description": "Super clock",
+  "main": "public/index.html",
+  "repository": "git@github.com:aurer/now.aurer.co.uk.git",
+  "author": "Phil Maurer <philmau@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.1.0",
+    "gulp-watch": "^4.3.11"
+  }
+}
