@@ -8,7 +8,7 @@ body {
 }
 
 body {
-	background-color: #26292F;
+	background-color: #1c2528;
 	padding: 1em;
 	margin: 0;
 }
@@ -20,19 +20,36 @@ svg {
 
 	circle {
 		fill: none;
-		stroke: #373b44;
+		stroke: #394649;
 		stroke-width: 20;
 		transform: rotate(-90deg);
 		transform-origin: center;
-		transition-duration: 1s;
+		transition-duration: .3s;
+
+		&[data-ending] {
+			transition-duration: 1s;
+		}
 
 		&.segments {
 			stroke: rgba(0, 0, 0, 0.5);
+			opacity: 1;
+			transition: opacity 1s;
 		}
 	}
 
 	text {
-		display: none;
+		fill: #91afb6;
+		font-family: sans-serif;
+		font-size: .7em;
+		opacity: 1;
+		transition: opacity 1s;
+	}
+
+	&.hide-details {
+		text,
+		.segments {
+			opacity: 0;
+		}
 	}
 }
 
@@ -40,11 +57,19 @@ svg {
 	&.progress {
 		stroke: #395E66;
 	}
+
+	+ text {
+		fill: tint(#395E66, 40%);
+	}
 }
 
 .month {
 	&.progress {
 		stroke: #387D7A;
+	}
+
+	+ text {
+		fill: tint(#387D7A, 40%);
 	}
 }
 
@@ -52,11 +77,19 @@ svg {
 	&.progress {
 		stroke: #32936F;
 	}
+
+	+ text {
+		fill: tint(#32936F, 40%);
+	}
 }
 
 .day {
 	&.progress {
 		stroke: #26A96C;
+	}
+
+	+ text {
+		fill: tint(#26A96C, 40%);
 	}
 }
 
@@ -64,10 +97,18 @@ svg {
 	&.progress {
 		stroke: #12c777;
 	}
+
+	+ text {
+		fill: tint(#12c777, 40%);
+	}
 }
 
 .minute {
 	&.progress {
 		stroke: #0be886;
+	}
+
+	+ text {
+		fill: tint(#0be886, 40%);
 	}
 }

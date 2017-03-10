@@ -6,7 +6,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: #26292F;
+  background-color: #1c2528;
   padding: 1em;
   margin: 0;
 }
@@ -17,33 +17,64 @@ svg {
 }
 svg circle {
   fill: none;
-  stroke: #373b44;
+  stroke: #394649;
   stroke-width: 20;
   transform: rotate(-90deg);
   transform-origin: center;
+  transition-duration: .3s;
+}
+svg circle[data-ending] {
   transition-duration: 1s;
 }
 svg circle.segments {
   stroke: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 1s;
 }
 svg text {
-  display: none;
+  fill: #91afb6;
+  font-family: sans-serif;
+  font-size: .7em;
+  opacity: 1;
+  transition: opacity 1s;
+}
+svg.hide-details text,
+svg.hide-details .segments {
+  opacity: 0;
 }
 .year.progress {
   stroke: #395E66;
 }
+.year + text {
+  fill: #889ea3;
+}
 .month.progress {
   stroke: #387D7A;
+}
+.month + text {
+  fill: #88b1af;
 }
 .week.progress {
   stroke: #32936F;
 }
+.week + text {
+  fill: #84bea9;
+}
 .day.progress {
   stroke: #26A96C;
+}
+.day + text {
+  fill: #7dcba7;
 }
 .hour.progress {
   stroke: #12c777;
 }
+.hour + text {
+  fill: #71ddad;
+}
 .minute.progress {
   stroke: #0be886;
+}
+.minute + text {
+  fill: #6df1b6;
 }

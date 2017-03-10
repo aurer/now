@@ -9,7 +9,7 @@ var App = {
 		this.setupCircles();
 		this.setupSegments();
 		this.setTimouts();
-
+		this.enableDisplayOptions();
 		this.updateMinute();
 		this.updateHour();
 		this.updateDay();
@@ -74,11 +74,27 @@ var App = {
 		this.svg.setAttribute('width', max-20);
 	},
 
+	enableDisplayOptions: function() {
+		var toggleDetails = function() {
+			App.svg.classList.toggle('hide-details');
+		}
+		setTimeout(toggleDetails, 2000);
+
+		document.body.onclick = toggleDetails;
+		document.body.ontouchend = toggleDetails;
+	},
+
 	updateMinute: function() {
 		var circle = this.progressElements.minute;
 		var second = new Date().getSeconds();
 		var pos = second / 60 * 100;
-		circle.setAttribute('stroke-dashoffset', circle.circumference() - (circle.circumference() / 100) * pos);
+		var offset = circle.circumference() - (circle.circumference() / 100) * pos;
+		circle.setAttribute('stroke-dashoffset', offset);
+		if (pos == 0) {
+			circle.setAttribute('data-ending', true);
+		} else {
+			circle.removeAttribute('data-ending');
+		}
 	},
 
 	updateHour: function() {
