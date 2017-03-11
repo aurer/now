@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# Revision: 2
+
+CACHE:
+index.html
+/css/app.css
+/js/app.js
+/gfx/apple-touch-icon.png
+/gfx/32x32.png
+/gfx/16x16.png

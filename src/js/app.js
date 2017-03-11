@@ -25,7 +25,9 @@ var App = {
 	},
 
 	setupCircles: function() {
-		this.svg.querySelectorAll('circle').forEach(function(circle) {
+		var circles = App.svg.querySelectorAll('circle');
+		for(var i=0; i < circles.length; i++) {
+			var circle = circles[i];
 			var className = circle.getAttribute('class');
 
 			// Add progress circle
@@ -39,7 +41,7 @@ var App = {
 			var segment = circle.cloneNode(true);
 			segment.setAttribute('class', className + ' segments');
 			App.segmentElements[className] = App.svg.appendChild(segment);
-		});
+		};
 	},
 
 	setupSegments: function() {
@@ -58,20 +60,20 @@ var App = {
 			return (circle.getAttribute('r') * 2 * Math.PI ) / segmentCounts[element] - 1;
 		}
 
-		this.segmentElements.minute.setAttribute('stroke-dasharray', '1 ' + calculateSegments('minute'));
-		this.segmentElements.hour.setAttribute('stroke-dasharray', '1 ' + calculateSegments('hour'));
-		this.segmentElements.day.setAttribute('stroke-dasharray', '1 ' + calculateSegments('day'));
-		this.segmentElements.week.setAttribute('stroke-dasharray', '1 ' + calculateSegments('week'));
-		this.segmentElements.month.setAttribute('stroke-dasharray', '1 ' + calculateSegments('month'));
-		this.segmentElements.year.setAttribute('stroke-dasharray', '1 ' + calculateSegments('year'));
+		App.segmentElements.minute.setAttribute('stroke-dasharray', '1 ' + calculateSegments('minute'));
+		App.segmentElements.hour.setAttribute('stroke-dasharray', '1 ' + calculateSegments('hour'));
+		App.segmentElements.day.setAttribute('stroke-dasharray', '1 ' + calculateSegments('day'));
+		App.segmentElements.week.setAttribute('stroke-dasharray', '1 ' + calculateSegments('week'));
+		App.segmentElements.month.setAttribute('stroke-dasharray', '1 ' + calculateSegments('month'));
+		App.segmentElements.year.setAttribute('stroke-dasharray', '1 ' + calculateSegments('year'));
 	},
 
 	setSize: function() {
 		var y = window.innerHeight;
 		var x = window.innerwidth;
 		var max = x > y ? x : y;
-		this.svg.setAttribute('height', max-20);
-		this.svg.setAttribute('width', max-20);
+		App.svg.setAttribute('height', max-20);
+		App.svg.setAttribute('width', max-20);
 	},
 
 	enableDisplayOptions: function() {
@@ -85,7 +87,7 @@ var App = {
 	},
 
 	updateMinute: function() {
-		var circle = this.progressElements.minute;
+		var circle = App.progressElements.minute;
 		var second = new Date().getSeconds();
 		var pos = second / 60 * 100;
 		var offset = circle.circumference() - (circle.circumference() / 100) * pos;
@@ -98,7 +100,7 @@ var App = {
 	},
 
 	updateHour: function() {
-		var hour = this.progressElements.hour;
+		var hour = App.progressElements.hour;
 		var now = new Date();
 		var minutesInHour = 60;
 		var minute = now.getMinutes();
@@ -110,7 +112,7 @@ var App = {
 	},
 
 	updateDay: function() {
-		var circle = this.progressElements.day;
+		var circle = App.progressElements.day;
 		var minutesInDay = 60 * 24;
 		var hour = new Date().getHours();
 		var minute = (60 * hour) + new Date().getMinutes();
@@ -120,7 +122,7 @@ var App = {
 	},
 
 	updateWeek: function() {
-		var circle = this.progressElements.week;
+		var circle = App.progressElements.week;
 		var date = new Date();
 		var dayOfWeek = new Date().getDay();
 		var hours = date.getHours();
@@ -132,7 +134,7 @@ var App = {
 	},
 
 	updateMonth: function() {
-		var circle = this.progressElements.month;
+		var circle = App.progressElements.month;
 		var date = new Date();
 		var today = date.getDate();
 		var daysInMonth = new Date(date.getYear(), date.getMonth(), 0).getDate();
@@ -144,7 +146,7 @@ var App = {
 	},
 
 	updateYear: function() {
-		var circle = this.progressElements.year;
+		var circle = App.progressElements.year;
 		var today = new Date();
 		var first = new Date(today.getFullYear(), 0, 1);
 		var dayOfTheYear = Math.round(((today - first) / 1000 / 60 / 60 / 24) + .5, 0);
@@ -159,8 +161,8 @@ var App = {
 		var secondsUntilNextMinute = (60 - seconds) * 1000;
 
 		// Update every second
-		setInterval(this.updateMinute.bind(this), 1000);
-		setInterval(this.updateHour.bind(this), 1000);
+		setInterval(App.updateMinute.bind(this), 1000);
+		setInterval(App.updateHour.bind(this), 1000);
 
 		// Update every minute
 		setTimeout(function(){
