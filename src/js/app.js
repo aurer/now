@@ -49,6 +49,7 @@ var App = {
 			var circle = App.segmentElements[element];
 			var date = new Date();
 			var segmentCounts = {
+				second: 1,
 				minute: 60,
 				hour: 60,
 				day: 24,
@@ -60,6 +61,7 @@ var App = {
 			return (circle.getAttribute('r') * 2 * Math.PI ) / segmentCounts[element] - 1;
 		}
 
+		App.segmentElements.second.setAttribute('stroke-dasharray', '1 ' + calculateSegments('second'));
 		App.segmentElements.minute.setAttribute('stroke-dasharray', '1 ' + calculateSegments('minute'));
 		App.segmentElements.hour.setAttribute('stroke-dasharray', '1 ' + calculateSegments('hour'));
 		App.segmentElements.day.setAttribute('stroke-dasharray', '1 ' + calculateSegments('day'));
@@ -158,11 +160,18 @@ var App = {
 	setTimouts: function(){
 		var date = new Date();
 		var seconds = date.getSeconds();
-		var secondsUntilNextMinute = (60 - seconds) * 1000;
+		var milliseconds = date.getMilliseconds();
+		var millisecondsUntilNextSecond = (1000 - milliseconds) - 1000;
+		var secondsUntilNextMinute = ((60 - seconds) * 1000) - millisecondsUntilNextSecond);
 
-		// Update every second
-		setInterval(App.updateMinute.bind(this), 1000);
-		setInterval(App.updateHour.bind(this), 1000);
+		setTimeout(function() {
+			App.progressElements.second.classList.add('is-animated');
+
+			// Update every second
+			setInterval(App.updateMinute.bind(this), 1000);
+			setInterval(App.updateHour.bind(this), 1000);
+		}, millisecondsUntilNextSecond);
+
 
 		// Update every minute
 		setTimeout(function(){

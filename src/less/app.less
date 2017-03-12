@@ -20,14 +20,15 @@ svg {
 
 	circle {
 		fill: none;
-		stroke: #394649;
+		stroke: #2b3437;
 		stroke-width: 20;
 		transform: rotate(-90deg);
 		transform-origin: center;
-		transition-duration: .3s;
+		transition-duration: .5s;
+		transition-timing-function: linear;
 
 		&[data-ending] {
-			transition-duration: 1s;
+			transition-duration: 0s;
 		}
 
 		&.segments {
@@ -110,5 +111,29 @@ svg {
 
 	+ text {
 		fill: tint(#0be886, 40%);
+	}
+}
+
+@keyframes second {
+	to {
+		transform: rotate(270deg);
+	}
+}
+
+.second {
+	stroke-width: 20;
+
+	&.progress {
+		stroke: #29ffa0;
+		stroke-dasharray: 1 942;
+		stroke-linecap: round;
+
+		&.is-animated {
+			animation: second 1s linear infinite;
+		}
+	}
+
+	+ text {
+		fill: tint(#29ffa0, 40%);
 	}
 }

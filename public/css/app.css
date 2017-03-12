@@ -17,14 +17,17 @@ svg {
 }
 svg circle {
   fill: none;
-  stroke: #394649;
+  stroke: #2b3437;
   stroke-width: 20;
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transition-duration: .3s;
+  -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+  -ms-transform-origin: center;
+      transform-origin: center;
+  transition-duration: .5s;
+  transition-timing-function: linear;
 }
 svg circle[data-ending] {
-  transition-duration: 1s;
+  transition-duration: 0s;
 }
 svg circle.segments {
   stroke: rgba(0, 0, 0, 0.5);
@@ -77,4 +80,23 @@ svg.hide-details .segments {
 }
 .minute + text {
   fill: #6df1b6;
+}
+@keyframes second {
+  to {
+    transform: rotate(270deg);
+  }
+}
+.second {
+  stroke-width: 20;
+}
+.second.progress {
+  stroke: #29ffa0;
+  stroke-dasharray: 1 942;
+  stroke-linecap: round;
+}
+.second.progress.is-animated {
+  animation: second 1s linear infinite;
+}
+.second + text {
+  fill: #7fffc6;
 }
