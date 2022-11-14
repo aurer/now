@@ -101,27 +101,3 @@ svg.hide-details .segments {
 .minute + text {
 	fill: #6df1b6;
 }
-
-@keyframes second {
-	to {
-		transform: rotate(270deg);
-	}
-}
-
-.second {
-	stroke-width: 20;
-}
-
-.second.progress {
-	stroke: #29ffa0;
-	stroke-dasharray: 1 942;
-	stroke-linecap: round;
-}
-
-.second.progress.is-animated {
-	animation: second 1s linear infinite;
-}
-
-.second + text {
-	fill: #7fffc6;
-}

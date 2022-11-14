@@ -61,7 +61,7 @@ var App = {
 			return (circle.getAttribute('r') * 2 * Math.PI) / segmentCounts[element] - 1;
 		}
 
-		App.segmentElements.second.setAttribute('stroke-dasharray', '1 ' + calculateSegments('second'));
+		
 		App.segmentElements.minute.setAttribute('stroke-dasharray', '1 ' + calculateSegments('minute'));
 		App.segmentElements.hour.setAttribute('stroke-dasharray', '1 ' + calculateSegments('hour'));
 		App.segmentElements.day.setAttribute('stroke-dasharray', '1 ' + calculateSegments('day'));
@@ -165,8 +165,6 @@ var App = {
 		var secondsUntilNextMinute = (60 - seconds) * 1000 - millisecondsUntilNextSecond;
 
 		setTimeout(function () {
-			App.progressElements.second.classList.add('is-animated');
-
 			// Update every second
 			setInterval(App.updateMinute.bind(this), 1000);
 			setInterval(App.updateHour.bind(this), 1000);
